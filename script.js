@@ -1,28 +1,68 @@
+const paragraph = document.querySelector("p")
+let operator;
+
 const add = (a, b) => {
-    return a + b;
+    operator = "";
+    return paragraph.innerText = Number(a) + Number(b);
 }
 
 const subtract = (a, b) => {
-    return a - b;
+    operator = "";
+    return paragraph.innerText = Number(a) - Number(b);
 }
 
 const multiply = (a, b) => {
-    return a * b;
+    operator = "";
+    return paragraph.innerText = Number(a) * Number(b);
 }
 
 const divide = (a, b) => {
-    return a / b;
+    operator = "";
+    return paragraph.innerText = Number(a) / Number(b);
 }
 
-const operate = (operator, a, b) => {
+const operate = (operator, [a, b]) => {
     switch(operator) {
-        case "add":
+        case "+":
             return add(a, b);
-        case "subtract":
+        case "-":
             return subtract(a, b);
-        case "multiply":
+        case "*":
             return multiply(a, b);
-        case "divide":
+        case "/":
             return divide(a, b);
+    }
+}
+
+const displayNumbers = (e) => {
+    paragraph.innerText += e.target.value;
+}
+
+const clearDisplay = () => {
+    paragraph.innerText = "";
+}
+
+// const storeNumber = (e) => {
+//     let num1 = paragraph.innerText;
+//     let operator = e.target.value;
+//     paragraph.innerText = "";
+
+//     console.log(num1, operator);
+// }
+
+const stringToNum = () => {
+    numbers = paragraph.innerText.split(operator);
+    operate(operator, numbers)
+}
+
+
+const storeOperator = (e) => {
+    if (!operator) {
+        operator = e.target.value;
+        paragraph.innerText += operator;
+    } else {
+        stringToNum();
+        operator = e.target.value;
+        paragraph.innerText += operator;
     }
 }

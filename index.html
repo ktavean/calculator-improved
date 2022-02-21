@@ -9,36 +9,36 @@
     <body>
         <div id="container">
             <div id="display">
-                <p>12345678910</p>
+                <p></p>
             </div>
             <div id="buttons">
                 <div id="left-side">
                     <div class="row">
-                        <button type="button" value="1">1</button>
-                        <button type="button" value="2">2</button>
-                        <button type="button" value="3">3</button>
+                        <button type="button" onclick="displayNumbers(event)" value="1">1</button>
+                        <button type="button" onclick="displayNumbers(event)" value="2">2</button>
+                        <button type="button" onclick="displayNumbers(event)" value="3">3</button>
                     </div>
                     <div class="row">
-                        <button type="button" value="4">4</button>
-                        <button type="button" value="5">5</button>
-                        <button type="button" value="6">6</button>
+                        <button type="button" onclick="displayNumbers(event)" value="4">4</button>
+                        <button type="button" onclick="displayNumbers(event)" value="5">5</button>
+                        <button type="button" onclick="displayNumbers(event)" value="6">6</button>
                     </div>
                     <div class="row">
-                        <button type="button" value="7">7</button>
-                        <button type="button" value="8">8</button>
-                        <button type="button" value="9">9</button>
+                        <button type="button" onclick="displayNumbers(event)" value="7">7</button>
+                        <button type="button" onclick="displayNumbers(event)" value="8">8</button>
+                        <button type="button" onclick="displayNumbers(event)" value="9">9</button>
                     </div>
                     <div class="row">
-                        <button type="button" value="clear">Clear</button>
-                        <button type="button" value="0">0</button>
-                        <button type="button" value="=">=</button>
+                        <button type="button" onclick="clearDisplay()" value="clear">Clear</button>
+                        <button type="button" onclick="displayNumbers(event)" value="0">0</button>
+                        <button type="button" onclick="stringToNum()" value="=">=</button>
                     </div>
                 </div>
                 <div id="right-side">
-                    <button type="button" value="add">+</button>
-                    <button type="button" value="subtract">-</button>
-                    <button type="button" value="multiply">*</button>
-                    <button type="button" value="divide">/</button>
+                    <button type="button" onclick="storeOperator(event)" value="+">+</button>
+                    <button type="button" onclick="storeOperator(event)" value="-">-</button>
+                    <button type="button" onclick="storeOperator(event)" value="*">*</button>
+                    <button type="button" onclick="storeOperator(event)" value="/">/</button>
                 </div>
             </div>
         </div>

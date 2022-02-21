@@ -22,6 +22,8 @@ p {
 }
 
 #display {
+    width: 335px;
+    height: 48px;
     text-align: left;
     border: 1px solid;
 }
