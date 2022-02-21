@@ -1,0 +1,45 @@
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    width: 80px;
+    height: 80px;
+    font-size: 20px;
+}
+
+p {
+    font-size: 25px;
+    margin: 10px 10px;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#display {
+    text-align: left;
+    border: 1px solid;
+}
+
+#buttons {
+    display: flex;
+    gap: 5px;
+}
+
+#left-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid;
+}
+
+#right-side {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid;
+}

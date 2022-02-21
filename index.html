@@ -3,9 +3,44 @@
     <head>
         <meta charset="UTF-8">
         <script src="script.js" defer></script>
+        <link rel="stylesheet" href="style.css">
         <title>Calculator</title>
     </head>
     <body>
-        
+        <div id="container">
+            <div id="display">
+                <p>12345678910</p>
+            </div>
+            <div id="buttons">
+                <div id="left-side">
+                    <div class="row">
+                        <button type="button" value="1">1</button>
+                        <button type="button" value="2">2</button>
+                        <button type="button" value="3">3</button>
+                    </div>
+                    <div class="row">
+                        <button type="button" value="4">4</button>
+                        <button type="button" value="5">5</button>
+                        <button type="button" value="6">6</button>
+                    </div>
+                    <div class="row">
+                        <button type="button" value="7">7</button>
+                        <button type="button" value="8">8</button>
+                        <button type="button" value="9">9</button>
+                    </div>
+                    <div class="row">
+                        <button type="button" value="clear">Clear</button>
+                        <button type="button" value="0">0</button>
+                        <button type="button" value="=">=</button>
+                    </div>
+                </div>
+                <div id="right-side">
+                    <button type="button" value="add">+</button>
+                    <button type="button" value="subtract">-</button>
+                    <button type="button" value="multiply">*</button>
+                    <button type="button" value="divide">/</button>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
