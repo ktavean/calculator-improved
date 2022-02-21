@@ -33,6 +33,14 @@ p {
     gap: 5px;
 }
 
+#btn0 {
+    width: 164px
+}
+
+.disabled {
+    pointer-events: none;
+}
+
 #left-side {
     display: flex;
     flex-direction: column;
