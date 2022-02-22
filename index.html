@@ -8,42 +8,47 @@
     </head>
     <body>
         <div id="container">
-            <div id="display">
-                <p></p>
-            </div>
-            <div id="buttons">
-                <div id="left-side">
-                    <div class="row">
-                        <button type="button" id="decimal" onclick="displayNumbers(event)" value=".">.</button>
-                        <button type="button" onclick="displayNumbers(event)" value="%">%</button>
-                        <button type="button" onclick="delNumber()" value="backspace">DEL</button>
+            <div id="calculator">
+                <div id="line">
+                    <div id="display">
+                        <p></p>
                     </div>
-                    <div class="row">
-                        <button type="button" onclick="displayNumbers(event)" value="1">1</button>
-                        <button type="button" onclick="displayNumbers(event)" value="2">2</button>
-                        <button type="button" onclick="displayNumbers(event)" value="3">3</button>
+                    <div id="buttons">
+                        <div id="left-side">
+                            <div class="row">
+                                <button type="button" id="clear" value="clear">AC</button>
+                                <button type="button" id="del" value="backspace">▶</button>
+                                <button type="button" id="percentage" value="%">%</button>
+                            </div>
+                            <div class="row">
+                                <button type="button" class="numbers" value="7">7</button>
+                                <button type="button" class="numbers" value="8">8</button>
+                                <button type="button" class="numbers" value="9">9</button>
+                            </div>
+                            <div class="row">
+                                <button type="button" class="numbers" value="4">4</button>
+                                <button type="button" class="numbers" value="5">5</button>
+                                <button type="button" class="numbers" value="6">6</button>
+                            </div>
+                            <div class="row">
+                                <button type="button" class="numbers" value="1">1</button>
+                                <button type="button" class="numbers" value="2">2</button>
+                                <button type="button" class="numbers" value="3">3</button>
+                            </div>
+                            <div class="row">
+                                <button type="button" class="numbers" id="btn0" value="0">0</button>
+                                <button type="button" id="decimal" value=".">.</button>
+                                <button type="button" id="equals" value="=">=</button>
+                            </div>
+                        </div>
+                        <div id="right-side">
+                            
+                            <button type="button" class="operators" value="/">/</button>
+                            <button type="button" class="operators" value="*">*</button>
+                            <button type="button" class="operators" value="-">-</button>
+                            <button type="button" id="plus" class="operators" value="+">+</button>
+                        </div>
                     </div>
-                    <div class="row">
-                        <button type="button" onclick="displayNumbers(event)" value="4">4</button>
-                        <button type="button" onclick="displayNumbers(event)" value="5">5</button>
-                        <button type="button" onclick="displayNumbers(event)" value="6">6</button>
-                    </div>
-                    <div class="row">
-                        <button type="button" onclick="displayNumbers(event)" value="7">7</button>
-                        <button type="button" onclick="displayNumbers(event)" value="8">8</button>
-                        <button type="button" onclick="displayNumbers(event)" value="9">9</button>
-                    </div>
-                    <div class="row">
-                        <button type="button" id="btn0" onclick="displayNumbers(event)" value="0">0</button>
-                        <button type="button" id="equals" value="=">=</button>
-                    </div>
-                </div>
-                <div id="right-side">
-                    <button type="button" onclick="clearDisplay()" value="clear">Clear</button>
-                    <button type="button" onclick="storeNumber(event)" value="+">+</button>
-                    <button type="button" onclick="storeNumber(event)" value="-">-</button>
-                    <button type="button" onclick="storeNumber(event)" value="*">*</button>
-                    <button type="button" onclick="storeNumber(event)" value="/">/</button>
                 </div>
             </div>
         </div>

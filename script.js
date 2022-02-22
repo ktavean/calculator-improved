@@ -1,89 +1,165 @@
 const paragraph = document.querySelector("p");
+const numbers = document.querySelectorAll(".numbers");
+const operators = document.querySelectorAll(".operators");
 const equals = document.querySelector("#equals");
-const decimal = document.querySelector("#decimal")
+const decimal = document.querySelector("#decimal");
+const clear = document.querySelector("#clear");
+const del = document.querySelector("#del");
+const percentageBtn = document.querySelector("#percentage");
+
 let operator = "";
 let num1 = "";
 let num2 = "";
+let cleared = true;
 
 const add = (a, b) => {
-    num1 = a + b;
-    return paragraph.innerText = a + b;
+    return Math.floor((a + b) * 100) / 100;
 }
 
 const subtract = (a, b) => {
-    return paragraph.innerText = a - b;
+    return Math.floor((a - b) * 100) / 100;
 }
 
 const multiply = (a, b) => {
-    return paragraph.innerText = a * b;
+    return Math.floor((a * b) * 100) / 100;
 }
 
 const divide = (a, b) => {
-    return paragraph.innerText = a / b;
+    return Math.floor((a / b) * 100) / 100;
 }
 
-const operate = (operator, a, b) => {
-    switch(operator) {
+const percentage = (a) => {
+    return a / 100;
+}
+
+const operate = (operation, a, b) => {
+    num2 = "";
+    switch(operation) {
         case "+":
-            return add(a, b);
+            num1 = Math.floor((a + b) * 10) / 10;
+            return paragraph.innerText = add(a, b);
         case "-":
-            return subtract(a, b);
+            num1 = Math.floor((a - b) * 10) / 10;
+            return paragraph.innerText = subtract(a, b);
         case "*":
-            return multiply(a, b);
+            num1 = Math.floor((a * b) * 10) / 10;
+            return paragraph.innerText = multiply(a, b);
         case "/":
-            return divide(a, b);
+            if (b === 0) {
+                num1 = ""
+                num2 = ""
+                operator = ""
+                cleared = false;
+                return paragraph.innerText = "Dividing by 0. Original."
+            } else {
+                num1 = Math.floor((a / b) * 10) / 10;
+                return paragraph.innerText = divide(a, b);
+            }
+        case "%":
+            num1 = a / 100;
+            return paragraph.innerText = percentage(a);
     }
 }
 
-const displayNumbers = (e) => {
-    if(paragraph.innerText === "" && e.target.value === "0")
-        return false;
-    else {
-        paragraph.innerText += e.target.value;
+const display = () => {
+    if (num1 && operator) {
+        paragraph.innerText = "";
+        paragraph.innerText = num2;
+    } else {
+        paragraph.innerText = num1;
     }
-    
 }
+
+const storeNums = (e) => {
+    if (!operator) {
+        num1 += e.target.value;
+    } else {
+        num2 += e.target.value;
+    }
+}
+
+for (let i = 0; i < numbers.length; i++) {
+    numbers[i].addEventListener("click", (e) => {
+        if (cleared === false) {
+            paragraph.innerText = "Please clear the screen first";
+        } else {
+            storeNums(e);
+            display();
+        }
+    })
+}
+
+for (let i = 0; i < operators.length; i++) {
+    operators[i].addEventListener("click", (e) => {
+        if (num2) {
+            operate(operator, Number(num1), Number(num2));
+            operator = e.target.value;
+            decimal.classList.remove("disabled");
+        } else if (cleared === false) {
+            paragraph.innerText = "Please clear the screen first";
+        } else {
+            operator = e.target.value;
+            decimal.classList.remove("disabled");
+        }
+    })
+}
+
+equals.addEventListener("click", () => {
+    operate(operator, Number(num1), Number(num2));
+})
+
+decimal.addEventListener("click", (e) => {
+    if (cleared === false) {
+        paragraph.innerText = "Please clear the screen first";
+    } else {
+        decimal.classList.add("disabled");
+        storeNums(e);
+        display();
+    }
+})
 
 const clearDisplay = () => {
     num1 = "";
     num2 = "";
     operator = "";
     paragraph.innerText = "";
+    cleared = true;
 }
 
-const delNumber = () => {
-    paragraph.innerText = paragraph.innerText.slice(0, paragraph.innerText.length-1);
-}
+clear.addEventListener("click", clearDisplay);
 
-const storeNumber = (e) => {
-    if (!num1) {
-        num1 = Number(paragraph.innerText);
-        operator = e.target.value;
-        paragraph.innerText = "";
+del.addEventListener("click", () => {
+    if (cleared === false) {
+        paragraph.innerText = "Please clear the screen first";
     } else {
-        paragraph.innerText = "";
-        
-        console.log(operator, num1, num2);
+        if (!num2) {
+            let str = String(num1)
+            num1 = str.slice(0, str.length-1)
+            if (str[str.length-1] === ".") {
+                num1 = str.slice(0, str.length-1)
+                decimal.classList.remove("disabled");
+                paragraph.innerText = num1;
+            } else {
+                paragraph.innerText = num1;
+            }
+            operator = "";
+        } else {
+            let str = String(num2);
+            num2 = str.slice(0, str.length-1);
+            if (str[str.length-1] === ".") {
+                num2 = str.slice(0, str.length-1)
+                decimal.classList.remove("disabled");
+                paragraph.innerText = num2;
+            } else {
+                paragraph.innerText = num2;
+            }
     }
 }
-
-equals.addEventListener("click", () => {
-    num2 = Number(paragraph.innerText)
-    operate(operator, num1, num2)
+        
 })
 
-// const stringToNum = () => {
-//     numbers = paragraph.innerText.split(operator);
-//     operate(operator, numbers)
-// }
-
-// const storeOperator = (e) => {
-//     if (!operator) {
-//         operator = e.target.value;
-//         paragraph.innerText += operator;
-//     } else {
-//         stringToNum();
-//         operator = e.target.value;
-//         paragraph.innerText += operator;
-//     }
-// }
+percentageBtn.addEventListener("click", () => {
+    if (num1) {
+        operate("%", num1);
+    }
+})
