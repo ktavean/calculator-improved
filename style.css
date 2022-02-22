@@ -7,7 +7,7 @@ button {
     width: 65px;
     height: 50px;
     font-size: 35px;
-    font-family: monospace;
+    font-family: Arial;
     text-align: center;
     margin: 5px;
     color: white;
@@ -22,35 +22,70 @@ p {
 
 #container {
     padding: 100px 50px 30px 50px;
-    border: 1px solid; /* ala mare */
+    /* border: 1px solid; */
+    /* background: #E6E6E6; */
 }
 
 #calculator {
     display: flex;
     flex-direction: column;
-    gap: 15px;
     padding-right: 20px;
     padding-left: 20px;
-    border: 2px solid; /* ala mic */
+    /* border: 2px solid;  */
+}
+
+#white {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+    background: #DEDCDD;
+}
+
+#top-part {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 15px;
+    padding-top: 15px;;
+}
+
+#casio {
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#model {
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
+#tpbox {
+    width: 150px;
+    background: #392821;
+    border-radius: 7px;
 }
 
 #display {
-    flex-grow: 1;
+    align-self: center;
     height: 80px;
+    width: 300px;
     text-align: left;
-    border: 1px solid;
     background: #CFE2E6;
+    border: 1px solid black;
 }
 
 #line {
     display: flex;
     flex-direction: column;
-    border: 1px solid; /*  conturul mic */
+    background: #818181;
+    border: 5px solid #818181;
 }
 
 #buttons {
     display: flex;
-    border: 1px solid black;
+    background: #DEDCDD;
+    border-top: 5px solid #818181;
+    padding: 15px;
 }
 
 #plus {
@@ -65,12 +100,14 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    align-items: center;
-    /* border: 1px solid; */
 }
 
 .numbers, #decimal {
     background: linear-gradient(to left, #343434, #4B4B4B);
+}
+
+.numbers:active, #decimal:active {
+    background: linear-gradient(to left, #525151, #646464);
 }
 
 #right-side {
@@ -81,9 +118,17 @@ p {
 }
 
 #right-side button, #percentage, #equals {
-    background: linear-gradient(to left, #6e6c6d, #6d6c67)
+    background: linear-gradient(to left, #6e6c6d, #6d6c67);
+}
+
+#right-side button:active, #percentage:active, #equals:active {
+    background: linear-gradient(to left, #888587, #8b8a84);
 }
 
 #clear, #del {
     background: linear-gradient(to left, #D27242, #E78254);
+}
+
+#clear:active, #del:active {
+    background: linear-gradient(to left, #e67d49, #fa8c5a);
 }

@@ -1,4 +1,4 @@
-const paragraph = document.querySelector("p");
+const paragraph = document.querySelector("#disp");
 const numbers = document.querySelectorAll(".numbers");
 const operators = document.querySelectorAll(".operators");
 const equals = document.querySelector("#equals");
@@ -123,6 +123,7 @@ const clearDisplay = () => {
     num2 = "";
     operator = "";
     paragraph.innerText = "";
+    decimal.classList.remove("disabled");
     cleared = true;
 }
 
